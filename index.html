@@ -1,13 +1,230 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>product-intelligence-project</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Product Trust Analyzer</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Using Google Fonts for icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Navigation -->
+        <nav class="navbar glass">
+            <a href="/" class="nav-brand">
+                <span class="material-symbols-outlined text-indigo">verified_user</span>
+                <span>TrustAnalyzer</span>
+            </a>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#features">Features</a>
+                <a href="#how-it-works">How it Works</a>
+                <a href="#about">About</a>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section id="home" class="hero fade-in">
+            <h1>AI Product Trust Analyzer</h1>
+            <p>Analyze product reliability, detect fake reviews instantly, and make informed purchasing decisions with our advanced AI and workflow automation.</p>
+            <button class="btn btn-primary" onclick="document.getElementById('analyzer').scrollIntoView({ behavior: 'smooth' })">
+                <span class="material-symbols-outlined">search</span>
+                Analyze Now
+            </button>
+        </section>
+
+        <!-- Analyzer Section -->
+        <section id="analyzer">
+            <div class="section-title">Check a Product</div>
+            <div class="section-subtitle">Enter any product name or URL to instantly generate a comprehensive AI trust report.</div>
+            
+            <div class="analyzer-card glass">
+                <form id="analyze-form" class="input-group">
+                    <input 
+                        type="text" 
+                        id="product-input"
+                        class="input-field" 
+                        placeholder="e.g. Sony WH-1000XM5 Headphones..."
+                        required
+                    >
+                    <button type="submit" class="btn btn-primary" id="analyze-btn">
+                        <span class="material-symbols-outlined" id="btn-icon">smart_toy</span>
+                        <span id="btn-text">Check Product</span>
+                    </button>
+                </form>
+
+                <!-- Results Container (Hidden by default) -->
+                <div id="results-container" class="results-container hidden">
+                    <div class="score-circle" style="--score-deg: 300deg;">
+                        <span class="score-value">84</span>
+                        <span class="score-label">Trust Score</span>
+                    </div>
+                    
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <div class="metric-header">
+                                <span class="material-symbols-outlined">warning</span>
+                                <span>Fake Review Probability</span>
+                            </div>
+                            <div style="font-size: 1.5rem; font-weight: bold; color: var(--success);">
+                                Low (12%)
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 12%; background-color: var(--success);"></div>
+                            </div>
+                        </div>
+
+                        <div class="metric-card">
+                            <div class="metric-header">
+                                <span class="material-symbols-outlined">chat</span>
+                                <span>Customer Sentiment</span>
+                            </div>
+                            <div style="font-size: 1.5rem; font-weight: bold; color: #60A5FA;">
+                                Highly Positive
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 85%; background-color: #60A5FA;"></div>
+                            </div>
+                        </div>
+
+                        <div class="metric-card">
+                            <div class="metric-header">
+                                <span class="material-symbols-outlined">check_circle</span>
+                                <span>AI Verdict</span>
+                            </div>
+                            <p style="font-size: 0.875rem; color: var(--text-muted); margin-top: 0.5rem;">
+                                Based on analyzing 1,240 reviews across 3 platforms, this product shows consistent quality and legitimate feedback patterns. Recommended.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features">
+            <div class="section-title">Why Trust Us?</div>
+            <div class="section-subtitle">Our platform leverages cutting-edge technology to give you the most accurate product insights.</div>
+            
+            <div class="features-grid">
+                <div class="feature-card glass">
+                    <div class="feature-icon">
+                        <span class="material-symbols-outlined">smart_toy</span>
+                    </div>
+                    <h3>AI-Based Analysis</h3>
+                    <p>Advanced natural language processing models evaluate sentiment, tone, and consistency across thousands of data points.</p>
+                </div>
+                
+                <div class="feature-card glass">
+                    <div class="feature-icon">
+                        <span class="material-symbols-outlined">manage_search</span>
+                    </div>
+                    <h3>Fake Review Detection</h3>
+                    <p>Identify sophisticated fake reviews generated by bots or paid services using anomaly detection algorithms.</p>
+                </div>
+                
+                <div class="feature-card glass">
+                    <div class="feature-icon">
+                        <span class="material-symbols-outlined">query_stats</span>
+                    </div>
+                    <h3>Smart Trust Scoring</h3>
+                    <p>A proprietary scoring system that aggregates multiple trust factors into a simple, easy-to-understand metric.</p>
+                </div>
+                
+                <div class="feature-card glass">
+                    <div class="feature-icon">
+                        <span class="material-symbols-outlined">bolt</span>
+                    </div>
+                    <h3>Real-time Automation</h3>
+                    <p>Instant results powered by streamlined n8n workflow automation that gathers and processes data in seconds.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section id="how-it-works">
+            <div class="section-title">How It Works</div>
+            <div class="section-subtitle">A seamless process from input to actionable insight.</div>
+            
+            <div class="steps-container glass" style="padding: 3rem; max-width: 800px; margin: 0 auto;">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Input Product Details</h3>
+                        <p>Enter the name or URL of the product you want to verify. Our system accepts items from all major e-commerce platforms.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Data Aggregation Workflow</h3>
+                        <p>Our n8n automation workflow instantly triggers, scraping reviews, product specs, and seller history from multiple sources.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>AI Analysis</h3>
+                        <p>The aggregated data is fed into our AI models which analyze sentiment, detect anomalies, and identify patterns indicative of fake reviews.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Generate Trust Report</h3>
+                        <p>Receive a comprehensive, easy-to-read report with a Trust Score and actionable recommendations.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <div class="glass" style="padding: 4rem; text-align: center; max-width: 1000px; margin: 0 auto;">
+                <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; background: linear-gradient(to right, #fff, #94A3B8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                    Built for the Modern Consumer
+                </h2>
+                <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 2rem; max-width: 800px; margin-inline: auto;">
+                    The AI Product Trust Analyzer was built to solve a growing problem in e-commerce: knowing what to trust. By combining state-of-the-art artificial intelligence concepts with powerful n8n workflow automation, we can analyze vast amounts of product data and reviews faster and more accurately than a human ever could. Our goal is to bring transparency back to online shopping.
+                </p>
+                
+                <h3 style="font-size: 1.5rem; margin-top: 3rem; margin-bottom: 1.5rem;">Core Technologies</h3>
+                <div class="tech-stack">
+                    <div class="tech-item">
+                        <span class="material-symbols-outlined text-primary">html</span>
+                        HTML/CSS UI
+                    </div>
+                    <div class="tech-item">
+                        <span class="material-symbols-outlined text-primary">account_tree</span>
+                        n8n Automation
+                    </div>
+                    <div class="tech-item">
+                        <span class="material-symbols-outlined text-primary">smart_toy</span>
+                        AI Logic
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="material-symbols-outlined text-indigo">verified_user</span>
+                    TrustAnalyzer
+                </div>
+                <p class="footer-text">
+                    &copy; <span id="current-year"></span> AI Product Trust Analyzer. Concept project.
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
 </html>
