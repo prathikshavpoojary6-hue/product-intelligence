@@ -1,0 +1,11 @@
+{
+  "name": "ai-product-trust-analyzer",
+  "version": "1.0.0",
+  "description": "Frontend website for AI Product Trust Analyzer",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve ."
+  },
+  "author": "",
+  "license": "ISC"
+}
